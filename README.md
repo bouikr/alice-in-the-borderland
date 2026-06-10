@@ -73,11 +73,12 @@ Ce projet est organisé en deux branches principales :
 ## 👥 Équipe
 
 Membre:
-Azeroual Khadija 
-Bouhouch Hasna 
-Bouincha Ikram
-El Mahfoud Nouhaila
-Sarir Abla
+
+- Azeroual Khadija
+- Bouhouch Hasna
+- Bouincha Ikram
+- El Mahfoud Nouhaila
+- Sarir Abla
 
 ---
 
