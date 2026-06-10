@@ -3549,19 +3549,16 @@ public sealed class DiamondGame : MonoBehaviour
         if (selected.mode == GameMode.Beginner)  
             return "DIAMOND 2 — BEGINNER\n" +
                 selected.seconds + " SECONDS — " + 
-                selected.attempts + " ATTEMPTS — " + 
-                selected.lives + " LIVES\n" +
+                selected.attempts + " ATTEMPTS\n" +
                 "THIS GAME CAN BE CLEARED";
         if (selected.mode == GameMode.DeathGame) 
             return "DIAMOND 7 — DEATH GAME\n" +
                 selected.seconds + " SECONDS — " + 
-                selected.attempts + " ATTEMPTS — " + 
-                selected.lives + " LIFE\n" +
+                selected.attempts + " ATTEMPTS\n" +
                 "NO ONE HAS CLEARED THIS GAME";
         return "DIAMOND 2 — CHALLENGER\n" +
             selected.seconds + " SECONDS — " + 
-            selected.attempts + " ATTEMPTS — " + 
-            selected.lives + " LIVES\n" +
+            selected.attempts + " ATTEMPTS\n" +
             "ONLY THE SMART SURVIVE";
     }
     private TextMeshProUGUI FindText(RectTransform parent, string name) =>
@@ -3579,7 +3576,7 @@ public sealed class DiamondGame : MonoBehaviour
         if (colorblind) return mark == Mark.Locked ? "*" : mark == Mark.Signal ? "O" : "X";
         return mark == Mark.Locked ? "♦" : mark == Mark.Signal ? "◆" : "■";
     }
-    private string LifeSymbols() => new string('♦', Mathf.Max(0, lives)) + new string('♢', Mathf.Max(0, selected.lives - lives));
+    private string LifeSymbols() => lives > 0 ? "♦" : "♢";
     private string RankName(int v) => v >= 2000 ? "LEGEND" : v >= 1300 ? "ELITE" : v >= 700 ? "VETERAN" : v >= 300 ? "SURVIVOR" : "NEWCOMER";
     private string OnOff(bool v) => v ? "ON" : "OFF";
     private float DigitFrequency(int digit) { float[] n = { 659f, 262f, 294f, 330f, 349f, 392f, 440f, 494f, 523f, 587f }; return n[Mathf.Clamp(digit, 0, n.Length - 1)]; }
