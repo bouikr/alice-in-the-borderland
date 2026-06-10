@@ -65,8 +65,8 @@ Ce projet est organisé en deux branches principales :
 
 | Branche | Contenu |
 |---------|---------|
-| `main` | Scripts Menu, DiamondGame, navigation |
-| `master` | Scripts Drone, Ville Abandonnée, City |
+| `main` | Scripts Menu, DiamondGame, Ville Abandonnée, navigation |
+| `master` | Scripts Drone, City |
 
 ---
 
