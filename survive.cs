@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class sirvive : MonoBehaviour
+public class survive : MonoBehaviour
 {
     [Header("Drone")]
     public GameObject drone;
@@ -24,64 +24,105 @@ public class sirvive : MonoBehaviour
 
     void Start()
     {
-        if (victoryPanel != null) victoryPanel.SetActive(false);
-        if (gameOverPanel != null) gameOverPanel.SetActive(false);
+        if (victoryPanel != null)
+            victoryPanel.SetActive(false);
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
     }
 
     void Update()
     {
-        if (gameFinished) return;
+        if (gameFinished)
+            return;
 
         timer += Time.deltaTime;
 
-        // Timer affiché
+        // Affichage du temps restant
         if (timerText != null)
         {
             float timeLeft = survivalTime - timer;
+
             timerText.text = "Temps : " + Mathf.CeilToInt(timeLeft) + "s";
-            timerText.color = timeLeft <= 10f ? Color.red : Color.white;
+
+            if (timeLeft <= 10f)
+                timerText.color = Color.red;
+            else
+                timerText.color = Color.white;
         }
 
+        // Victoire
         if (timer >= survivalTime)
+        {
             Victory();
+        }
     }
 
+    // Appelé quand le drone attrape le joueur
     public void PlayerCaught()
     {
-        if (gameFinished) return;
+        if (gameFinished)
+            return;
+
         GameOver();
     }
 
     void Victory()
     {
         gameFinished = true;
-        if (drone != null) drone.SetActive(false);
+
+        // Sauvegarde la victoire du mini-jeu Drone
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.droneWon = true;
+        }
+
+        if (drone != null)
+            drone.SetActive(false);
 
         if (victoryPanel != null)
         {
             victoryPanel.SetActive(true);
+
             if (victoryText != null)
-                victoryText.text = "🏆 VOUS AVEZ GAGNE !\nVous avez survecu au drone !";
+            {
+                victoryText.text =
+                    "🏆 VOUS AVEZ GAGNE !\nVous avez survecu au drone !";
+            }
         }
 
-        Debug.Log("VICTOIRE !");
-        Invoke("RetourVille", 4f);
+        Debug.Log("VICTOIRE DRONE");
+
+        Invoke(nameof(RetourVille), 4f);
     }
 
     void GameOver()
     {
         gameFinished = true;
-        if (drone != null) drone.SetActive(false);
+
+        // Perdre une vie
+        if (GlobalGameManager.Instance != null)
+        {
+            GlobalGameManager.Instance.lives--;
+        }
+
+        if (drone != null)
+            drone.SetActive(false);
 
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
+
             if (gameOverText != null)
-                gameOverText.text = "💀 GAME OVER !\nLe drone vous a attrape !";
+            {
+                gameOverText.text =
+                    "💀 GAME OVER !\nLe drone vous a attrape !";
+            }
         }
 
-        Debug.Log("GAME OVER !");
-        Invoke("RetourVille", 4f);
+        Debug.Log("DEFAITE DRONE");
+
+        Invoke(nameof(RetourVille), 4f);
     }
 
     void RetourVille()

@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class DroneDetection : MonoBehaviour
 {
-    private sirvive gameManager;
+    private survive gameManager;
 
     void Start()
     {
-        gameManager = FindFirstObjectByType<sirvive>();
+        gameManager = FindFirstObjectByType<survive>();
 
         if (gameManager == null)
-            Debug.LogError("ERREUR : sirvive introuvable !");
+            Debug.LogError("ERREUR : survive introuvable !");
         else
-            Debug.Log("OK : sirvive trouve !");
+            Debug.Log("OK : survive trouve !");
     }
 
     // Détecte via Trigger

@@ -23,11 +23,11 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip crySound;     // son de cri
     public AudioSource audioSource;
 
-    private sirvive gameManager;
+    private survive gameManager;
 
     void Start()
     {
-        gameManager = FindFirstObjectByType<sirvive>();
+        gameManager = FindFirstObjectByType<survive>();
         currentHealth = maxHealth;
         UpdateHealthBar();
     }
