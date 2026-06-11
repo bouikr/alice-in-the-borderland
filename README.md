@@ -24,7 +24,7 @@ Le jeu se compose de 5 scènes :
 | Menu Principal | Écran titre et navigation |
 | Ville Abandonnée | Hub d'exploration en vue TPS |
 | Épreuve Drone | Pilotage de drone, batterie, obstacles |
-| Deviner le Nombre | Déduction logique, feedback chaud/froid |
+| DiamondGame | Déduction logique, feedback chaud/froid |
 | Écran de Fin | Débloqué après 2 victoires |
 
 ---
@@ -38,7 +38,7 @@ Le jeu se compose de 5 scènes :
 4. **Épreuve Drone** : pilotez avec WASD + Souris, 
    atteignez la zone d'extraction avant épuisement 
    de la batterie
-5. **Épreuve Deviner le Nombre** : trouvez le nombre 
+5. **Épreuve DiamondGame** : trouvez le nombre 
    entre 1 et 100 en moins de 7 tentatives 
    grâce aux indices chaud/froid
 6. Remportez les **deux épreuves** pour débloquer 
